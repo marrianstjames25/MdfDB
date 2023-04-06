@@ -9,6 +9,7 @@
     <Window.Resources>
         <local:Database1DataSet x:Key="database1DataSet"/>
         <CollectionViewSource x:Key="signUpDetailsViewSource" Source="{Binding SignUpDetails, Source={StaticResource database1DataSet}}"/>
+        <!-- -->
     </Window.Resources>
     <Grid>
         <TextBox HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap" Text="TextBox" x:Name="txtUsername" Width="120"/>
