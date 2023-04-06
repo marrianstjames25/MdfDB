@@ -1,0 +1,49 @@
+﻿<Window x:Class="MdfDB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MdfDB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <local:Database1DataSet x:Key="database1DataSet"/>
+        <CollectionViewSource x:Key="signUpDetailsViewSource" Source="{Binding SignUpDetails, Source={StaticResource database1DataSet}}"/>
+    </Window.Resources>
+    <Grid>
+        <TextBox HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap" Text="TextBox" x:Name="txtUsername" Width="120"/>
+        <PasswordBox x:Name="pswrdBox" Margin="0,138,0,0"   VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="emailBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="0,199,0,0"/>
+        <Label Content="First Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="229,83,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password&#xA;" HorizontalAlignment="Left" Margin="229,130,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email&#xA;" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Center"/>
+        <Button Content="SignUp" HorizontalAlignment="Left" Margin="340,329,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Grid x:Name="grid1" DataContext="{StaticResource signUpDetailsViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="559,90,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Column="0" Content="Id:" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="0" Text="{Binding Id, Mode=OneWay}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="First Name:" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <ComboBox x:Name="firstNameComboBox" Grid.Column="1" DisplayMemberPath="FirstName" HorizontalAlignment="Left" Height="NaN" ItemsSource="{Binding}" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
+            <Label Grid.Column="0" Content="Password:" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="passwordTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="2" Text="{Binding Password, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Grid.Column="0" Content="Email:" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+            <TextBox x:Name="emailTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="NaN" Margin="3" Grid.Row="3" Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+
+    </Grid>
+</Window>
