@@ -1,0 +1,6 @@
+{
+  "MongoSettings": {
+    "ConnectionString": "mongodb://myovchevski:<password>@cluster0.rlg4y2v.mongodb.net/test",
+    "DatabaseName": "Meow"
+  }
+}

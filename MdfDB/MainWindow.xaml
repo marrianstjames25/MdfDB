@@ -9,17 +9,17 @@
     <Window.Resources>
         <local:Database1DataSet x:Key="database1DataSet"/>
         <CollectionViewSource x:Key="signUpDetailsViewSource" Source="{Binding SignUpDetails, Source={StaticResource database1DataSet}}"/>
-        <!-- -->
+        <!-- Attach databases in the file -->
     </Window.Resources>
-    <Grid>
-        <TextBox HorizontalAlignment="Center" Margin="0,87,0,0" TextWrapping="Wrap" Text="TextBox" x:Name="txtUsername" Width="120"/>
-        <PasswordBox x:Name="pswrdBox" Margin="0,138,0,0"   VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="emailBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="0,199,0,0"/>
-        <Label Content="First Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="229,83,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password&#xA;" HorizontalAlignment="Left" Margin="229,130,0,0" VerticalAlignment="Top"/>
-        <Label Content="Email&#xA;" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Center"/>
-        <Button Content="SignUp" HorizontalAlignment="Left" Margin="340,329,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Grid x:Name="grid1" DataContext="{StaticResource signUpDetailsViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="559,90,0,0">
+    <Grid Background="#FFBCEDB9">
+        <TextBox HorizontalAlignment="Left" Margin="159,54,0,363" TextWrapping="Wrap" Text="TextBox" x:Name="txtUsername" Width="120"/>
+        <PasswordBox x:Name="pswrdBox" Margin="159,105,521,0"   VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="emailBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="159,166,0,0"/>
+        <Label Content="First Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="48,50,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password&#xA;" HorizontalAlignment="Left" Margin="48,97,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email&#xA;" HorizontalAlignment="Left" Margin="48,163,0,0" VerticalAlignment="Top"/>
+        <Button Content="SignUp" HorizontalAlignment="Left" Margin="159,270,0,0" VerticalAlignment="Top" Click="Button_Click" Height="21" Width="73"/>
+        <Grid x:Name="grid1" DataContext="{StaticResource signUpDetailsViewSource}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="521,61,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
